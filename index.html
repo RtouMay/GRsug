@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیشنهاد هوشمند بازی گیم رنتر</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="grv.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="container">
+        <div class="logo-container">
+            <img src="aks/gameranter-logo.png" alt="لوگوی گیم‌رنتر" class="gameranter-logo">
+        </div>
+        <h1>پیشنهاد هوشمند بازی گیم رنتر</h1>
+        
+        <div id="selection-form">
+            <div class="input-group">
+                <label>ژانر مورد علاقه:</label>
+                <div id="genre-cards" class="card-options">
+                    <div class="genre-card" data-genre="اکشن">
+                        <img src="http://googleusercontent.com/image_generation_content/103" alt="ژانر اکشن">
+                        <span>اکشن</span>
+                    </div>
+                    <div class="genre-card" data-genre="ماجراجویی">
+                        <img src="http://googleusercontent.com/image_generation_content/100" alt="ژانر ماجراجویی">
+                        <span>ماجراجویی</span>
+                    </div>
+                    <div class="genre-card" data-genre="شوتر">
+                        <img src="http://googleusercontent.com/image_generation_content/97" alt="ژانر شوتر">
+                        <span>شوتر</span>
+                    </div>
+                    <div class="genre-card" data-genre="نقش آفرینی">
+                        <img src="http://googleusercontent.com/image_generation_content/98" alt="ژانر نقش آفرینی">
+                        <span>نقش آفرینی</span>
+                    </div>
+                    <div class="genre-card" data-genre="ورزشی">
+                        <img src="http://googleusercontent.com/image_generation_content/99" alt="ژانر ورزشی">
+                        <span>ورزشی</span>
+                    </div>
+                    <div class="genre-card" data-genre="ترس و بقا">
+                        <img src="http://googleusercontent.com/image_generation_content/101" alt="ژانر ترس و بقا">
+                        <span>ترس و بقا</span>
+                    </div>
+                    <div class="genre-card" data-genre="استراتژیک">
+                        <img src="http://googleusercontent.com/image_generation_content/102" alt="ژانر استراتژیک">
+                        <span>استراتژیک</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="price-range-slider">بازه قیمتی: <span id="price-display">تا ۱,۵۰۰,۰۰۰ تومان</span></label>
+                <input type="range" id="price-range-slider" min="0" max="1500000" step="10000" value="1500000">
+            </div>
+
+            <button id="recommend-button" class="action-button">نمایش بازی‌ها</button>
+        </div>
+
+        <div id="recommendation-results" style="display: none;">
+            <h3>بازی‌های پیشنهادی برای شما:</h3>
+            
+            <div id="game-list">
+                </div>
+            
+            <button id="reset-button" class="action-button">شروع دوباره</button>
+        </div>
+        
+        <div id="game-info-popup" style="display: none;">
+            <div class="popup-content">
+                <span class="close-button" id="close-popup">&times;</span>
+                <div class="popup-header">
+                    <img id="popup-image" src="" alt="Game Image">
+                    <div class="metacritic-score" id="popup-metascore-badge">
+                        <span class="score-value"></span>
+                    </div>
+                </div>
+                <div class="popup-body">
+                    <h4 class="popup-title-why">چرا این بازی؟</h4>
+                    <h5 id="popup-title"></h5>
+                    <p id="popup-summary" class="popup-text"></p>
+                    <p id="popup-duration" class="popup-text"></p>
+                    <p id="popup-size" class="popup-text"></p>
+                </div>
+                <div class="popup-buttons-row">
+                    <button id="share-button" class="action-button secondary-button share-button">اشتراک‌گذاری</button>
+                    <a href="#" target="_blank" class="action-button" id="popup-link">مشاهده و خرید</a>
+                    <button id="add-to-favorites-button" class="action-button secondary-button">افزودن به علاقه‌مندی‌ها</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
