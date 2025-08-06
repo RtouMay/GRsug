@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             price: 1200000, 
             metascore: 85, 
             image: "https://via.placeholder.com/200/ff3333/1c1c1c?text=Star+Wars", 
-            summary: "در این بازی اکشن جهان‌باز، در نقش یک یاغی فضایی، در کهکشان جنگ ستارگان به دنبال آزادی و ماجراجویی باشید. دزدی، فرار و مبارزه با امپراطوری تنها بخشی از کارهای شماست.", 
+            summary: "در این بازی اکشن جهان‌باز، در کهکشان جنگ ستارگان به دنبال آزادی و ماجراجویی باشید. دزدی، فرار و مبارزه با امپراطوری تنها بخشی از کارهای شماست.", 
             duration: "۴۰+ ساعت",
             link: "https://gamerenter.ir/star-wars-outlaws",
             size: {
@@ -243,7 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
     
-    // Elements from the DOM
     const genreCards = document.querySelectorAll('.genre-card');
     const priceRangeSlider = document.getElementById('price-range-slider');
     const priceDisplay = document.getElementById('price-display');
@@ -253,26 +252,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.getElementById('reset-button');
     const popup = document.getElementById('game-info-popup');
     const closePopupButton = document.getElementById('close-popup');
-    const shareButton = document.getElementById('share-button');
     const favoritesButton = document.getElementById('add-to-favorites-button');
 
-    // State variables
     let selectedGenres = [];
 
-    // Function to convert English/Arabic numbers to Farsi
     function toFarsi(number) {
         const farsi = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
         return number.toString().replace(/\d/g, d => farsi[d]);
     }
     
-    // Function to get Metacritic score color class
     function getMetascoreColorClass(score) {
         if (score >= 75) return 'green';
         if (score >= 50) return 'yellow';
         return 'red';
     }
 
-    // Function to create a URL-friendly slug from a title
     function createSlug(title) {
         return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
     }
@@ -338,8 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#popup-metascore-badge .score-value').textContent = toFarsi(game.metascore);
         document.getElementById('popup-title').textContent = game.title;
         document.getElementById('popup-summary').textContent = game.summary;
-        document.getElementById('popup-duration').textContent = `⏰ مدت زمان تقریبی بازی: ${game.duration}`;
-        document.getElementById('popup-size').textContent = `💾 حجم تقریبی بازی: ${game.size}`;
+        document.getElementById('popup-duration').textContent = `⏰ مدت زمان تقریبی بازی: ${toFarsi(game.duration)}`;
+        document.getElementById('popup-size').textContent = `💾 حجم تقریبی بازی: ${toFarsi(game.size)}`;
         document.getElementById('popup-link').href = game.link;
         popup.style.display = 'flex';
     }
@@ -348,14 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
         popup.style.display = 'none';
     });
 
-    shareButton.addEventListener('click', () => {
-        const link = document.getElementById('popup-link').href;
-        navigator.clipboard.writeText(link)
-            .then(() => alert("لینک بازی با موفقیت کپی شد!"))
-            .catch(err => console.error('Failed to copy: ', err));
-    });
-
-    favoritesButton.addEventListener('click', () => {
+    document.getElementById('add-to-favorites-button').addEventListener('click', () => {
         alert("این قابلیت در نسخه کامل سایت گیم رنتر فعال است!");
     });
     
